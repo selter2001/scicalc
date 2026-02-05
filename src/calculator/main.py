@@ -2,13 +2,15 @@
 SciCalc - Main Entry Point
 """
 
+from src.calculator.controller.calculator_controller import CalculatorController
+
+
 def main():
     """
-    Main application entry point.
-    Will be implemented in subsequent plans.
+    Main application entry point - launches GUI calculator.
     """
-    print("SciCalc - Scientific Calculator")
-    print("Application entry point ready")
+    controller = CalculatorController()
+    controller.run()
 
 
 if __name__ == "__main__":

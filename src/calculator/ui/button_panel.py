@@ -3,7 +3,7 @@ Button panel for calculator with basic and scientific layouts.
 """
 
 import customtkinter as ctk
-from calculator.config.constants import (
+from src.calculator.config.constants import (
     BASIC_LAYOUT,
     SCIENTIFIC_ROW_1,
     SCIENTIFIC_ROW_2,

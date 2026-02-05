@@ -3,10 +3,10 @@ Main calculator window with display, buttons, and mode selector.
 """
 
 import customtkinter as ctk
-from calculator.ui.display import DisplayPanel
-from calculator.ui.button_panel import ButtonPanel
-from calculator.config.locale import WINDOW_TITLE, BTN_MODE_BASIC, BTN_MODE_SCIENTIFIC
-from calculator.config.constants import (
+from src.calculator.ui.display import DisplayPanel
+from src.calculator.ui.button_panel import ButtonPanel
+from src.calculator.config.locale import WINDOW_TITLE, BTN_MODE_BASIC, BTN_MODE_SCIENTIFIC
+from src.calculator.config.constants import (
     WINDOW_MIN_WIDTH,
     WINDOW_MIN_HEIGHT,
     WINDOW_DEFAULT_GEOMETRY

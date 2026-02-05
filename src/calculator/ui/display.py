@@ -3,7 +3,7 @@ Display panel for calculator showing expression and result.
 """
 
 import customtkinter as ctk
-from calculator.config.constants import FONT_EXPRESSION, FONT_RESULT
+from src.calculator.config.constants import FONT_EXPRESSION, FONT_RESULT
 
 
 class DisplayPanel(ctk.CTkFrame):
