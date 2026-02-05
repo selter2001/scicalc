@@ -12,7 +12,7 @@ Build a professional scientific calculator from greenfield to GitHub-ready relea
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Project Foundation & Core Engine** - Project structure, safe parser, decimal-based arithmetic with error handling
+- [x] **Phase 1: Project Foundation & Core Engine** - Project structure, safe parser, decimal-based arithmetic with error handling
 - [ ] **Phase 2: Scientific Functions & Basic GUI** - Trigonometric/logarithmic functions, CustomTkinter interface, basic mode operations
 - [ ] **Phase 3: Advanced Modes & History** - Scientific mode toggle, angle mode system (DEG/RAD), history panel with keyboard support
 - [ ] **Phase 4: Polish & Professional Package** - Final UX refinements, professional documentation, GitHub-ready release
@@ -32,8 +32,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Project scaffolding, directory structure, .gitignore, requirements.txt, config modules (locale.py, constants.py)
-- [ ] 01-02-PLAN.md — Core calculation engine with TDD: SafeEvaluator, InputValidator, CalculatorEngine
+- [x] 01-01-PLAN.md — Project scaffolding, directory structure, .gitignore, requirements.txt, config modules (locale.py, constants.py)
+- [x] 01-02-PLAN.md — Core calculation engine with TDD: SafeEvaluator, InputValidator, CalculatorEngine
 
 ### Phase 2: Scientific Functions & Basic GUI
 **Goal**: Deliver working calculator GUI with all scientific functions in basic mode
@@ -91,11 +91,11 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Project Foundation & Core Engine | 0/2 | Not started | - |
+| 1. Project Foundation & Core Engine | 2/2 | ✓ Complete | 2026-02-05 |
 | 2. Scientific Functions & Basic GUI | 0/2 | Not started | - |
 | 3. Advanced Modes & History | 0/2 | Not started | - |
 | 4. Polish & Professional Package | 0/1 | Not started | - |
 
 ---
 *Roadmap created: 2026-02-05*
-*Last updated: 2026-02-05 after Phase 1 planning*
+*Last updated: 2026-02-05 after Phase 1 completion*

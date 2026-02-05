@@ -5,7 +5,7 @@
 See: .planning/PROJECT.md (updated 2026-02-05)
 
 **Core value:** Kalkulator musi dzialac bezblednie — poprawne obliczenia z czytelnym, nowoczesnym interfejsem.
-**Current focus:** Phase 1 - Project Foundation & Core Engine
+**Current focus:** Phase 2 - Scientific Functions & Basic GUI
 
 ## Current Position
 

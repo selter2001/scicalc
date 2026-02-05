@@ -77,16 +77,16 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| CALC-01 | Phase 1 | Pending |
-| CALC-02 | Phase 1 | Pending |
+| CALC-01 | Phase 1 | Complete |
+| CALC-02 | Phase 1 | Complete |
 | CALC-03 | Phase 2 | Pending |
 | CALC-04 | Phase 2 | Pending |
 | CALC-05 | Phase 2 | Pending |
 | CALC-06 | Phase 2 | Pending |
 | CALC-07 | Phase 2 | Pending |
-| CALC-08 | Phase 1 | Pending |
-| CALC-09 | Phase 1 | Pending |
-| CALC-10 | Phase 1 | Pending |
+| CALC-08 | Phase 1 | Complete |
+| CALC-09 | Phase 1 | Complete |
+| CALC-10 | Phase 1 | Complete |
 | MODE-01 | Phase 2 | Pending |
 | MODE-02 | Phase 2 | Pending |
 | MODE-03 | Phase 2 | Pending |
@@ -104,11 +104,11 @@
 | UI-03 | Phase 2 | Pending |
 | UI-04 | Phase 2 | Pending |
 | UI-05 | Phase 2 | Pending |
-| PROJ-01 | Phase 1 | Pending |
+| PROJ-01 | Phase 1 | Complete |
 | PROJ-02 | Phase 4 | Pending |
-| PROJ-03 | Phase 1 | Pending |
-| PROJ-04 | Phase 1 | Pending |
-| PROJ-05 | Phase 1 | Pending |
+| PROJ-03 | Phase 1 | Complete |
+| PROJ-04 | Phase 1 | Complete |
+| PROJ-05 | Phase 1 | Complete |
 
 **Coverage:**
 - v1 requirements: 32 total
@@ -117,4 +117,4 @@
 
 ---
 *Requirements defined: 2026-02-05*
-*Last updated: 2026-02-05 after roadmap creation — full coverage achieved*
+*Last updated: 2026-02-05 after Phase 1 completion — 9 requirements complete*
