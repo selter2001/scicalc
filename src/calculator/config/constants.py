@@ -36,6 +36,9 @@ MATH_CONSTANTS = {
 }
 
 # Function categories for validation
-BASIC_FUNCTIONS = ['sin', 'cos', 'tan', 'sqrt', 'log', 'ln', 'abs']
+BASIC_FUNCTIONS = ['sin', 'cos', 'tan', 'sqrt', 'log', 'ln', 'abs', 'factorial']
 ADVANCED_FUNCTIONS = ['asin', 'acos', 'atan', 'sinh', 'cosh', 'tanh']
 ALL_FUNCTIONS = BASIC_FUNCTIONS + ADVANCED_FUNCTIONS
+
+# Factorial limits
+MAX_FACTORIAL_INPUT = 170  # math.factorial(171) overflows float

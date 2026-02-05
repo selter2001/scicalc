@@ -23,6 +23,11 @@ ERROR_UNBALANCED_PARENTHESES = "Niezrównoważone nawiasy na pozycji {}"
 ERROR_MISSING_CLOSING_PARENTHESIS = "Brak zamykającego nawiasu"
 ERROR_MISSING_OPENING_PARENTHESIS = "Brak otwierającego nawiasu na pozycji {}"
 
+# Factorial errors
+ERROR_FACTORIAL_NOT_INTEGER = "Silnia wymaga liczby całkowitej"
+ERROR_FACTORIAL_NEGATIVE = "Silnia nie jest zdefiniowana dla liczb ujemnych"
+ERROR_FACTORIAL_TOO_LARGE = "Silnia: liczba zbyt duża (max 170)"
+
 # Info messages
 INFO_RESULT = "Wynik: {}"
 INFO_ANGLE_MODE_CHANGED = "Tryb kątów zmieniony na: {}"
