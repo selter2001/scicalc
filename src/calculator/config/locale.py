@@ -49,3 +49,22 @@ Użycie:
 ANGLE_MODE_DEGREES = "stopnie"
 ANGLE_MODE_RADIANS = "radiany"
 ANGLE_MODE_GRADIANS = "gradiany"
+
+# Window
+WINDOW_TITLE = "SciCalc - Kalkulator Naukowy"
+
+# Button labels (Polish where applicable)
+BTN_CLEAR = "C"
+BTN_BACKSPACE = "\u232b"
+BTN_EQUALS = "="
+BTN_DECIMAL = "."
+BTN_OPEN_PAREN = "("
+BTN_CLOSE_PAREN = ")"
+BTN_POWER = "x^y"
+BTN_FACTORIAL = "n!"
+BTN_SQRT = "\u221a"
+BTN_NEGATE = "+/-"
+
+# Mode labels
+BTN_MODE_BASIC = "Podstawowy"
+BTN_MODE_SCIENTIFIC = "Naukowy"
