@@ -79,10 +79,10 @@ Plans:
   3. Calculator feels professional and production-ready
   4. Repository structure is clean and follows Python best practices
   5. Git history shows logical commit progression
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 04-01: TBD
+- [ ] 04-01-PLAN.md — Professional README.md (Polish), MIT LICENSE, screenshot directory with instructions
 
 ## Progress
 
@@ -98,4 +98,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 ---
 *Roadmap created: 2026-02-05*
-*Last updated: 2026-02-05 after Phase 3 completion*
+*Last updated: 2026-02-05 after Phase 4 planning*
