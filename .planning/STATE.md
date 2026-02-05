@@ -9,19 +9,19 @@ See: .planning/PROJECT.md (updated 2026-02-05)
 
 ## Current Position
 
-Phase: 3 of 4 (Advanced Modes & History) — PLANNED
-Plan: 00 of 2 in phase (plans created, not yet executed)
-Status: Phase 3 planned — 2 plans in 2 waves, plan-checked and fixed
-Last activity: 2026-02-05 — Phase 3 plans created and verified
+Phase: 3 of 4 (Advanced Modes & History) — IN PROGRESS
+Plan: 01 of 2 in phase (plan 03-01 complete)
+Status: Phase 3 in progress — 1 plan complete, 1 remaining
+Last activity: 2026-02-05 — Completed 03-01-PLAN.md (angle mode, keyboard, clipboard)
 
-Progress: [████████████░░░░] 4/8 total plans complete (Phase 1: 2/2, Phase 2: 2/2, Phase 3: 0/2)
+Progress: [██████████████░░] 5/8 total plans complete (Phase 1: 2/2, Phase 2: 2/2, Phase 3: 1/2)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
-- Average duration: 3.46 min
-- Total execution time: 0.23 hours
+- Total plans completed: 5
+- Average duration: 3.31 min
+- Total execution time: 0.28 hours
 
 **By Phase:**
 
@@ -29,10 +29,11 @@ Progress: [████████████░░░░] 4/8 total plans com
 |-------|-------|-------|----------|
 | 01-project-foundation-core-engine | 2 | 5.37 min | 2.69 min |
 | 02-scientific-functions-basic-gui | 2 | 8.40 min | 4.20 min |
+| 03-advanced-modes-history | 1 | 2.70 min | 2.70 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (1.5 min), 01-02 (3.87 min), 02-01 (4.52 min), 02-02 (3.88 min)
-- Trend: Stabilizing around 4 min per plan
+- Last 5 plans: 01-02 (3.87 min), 02-01 (4.52 min), 02-02 (3.88 min), 03-01 (2.70 min)
+- Trend: Decreasing - last plan significantly faster
 
 *Updated after each plan completion*
 
@@ -63,6 +64,11 @@ Recent decisions affecting current work:
 - **02-02:** Dark theme set before window creation via ctk.set_appearance_mode
 - **02-02:** Button color coding: numbers dark, operators orange, functions gray, actions light
 - **02-02:** LABEL_TO_TOKEN mapping: Transform button labels (√, π, x^y) to engine tokens (sqrt(, pi, ^)
+- **03-01:** CTkSegmentedButton for DEG/RAD angle mode toggle (always visible below result)
+- **03-01:** Lambda closure pattern with default param (lambda e, c=char) for keyboard binding loops
+- **03-01:** Window-level keyboard bindings ensure input works regardless of widget focus
+- **03-01:** Return 'break' from clipboard handlers prevents tkinter default Ctrl+C/V behavior
+- **03-01:** Clipboard paste validation: only numeric/operator characters allowed (0-9, +, -, *, /, (, ), ., e, E)
 
 ### Pending Todos
 
@@ -78,17 +84,17 @@ None yet.
 - ~~Phase 2: Need to extend SafeEvaluator with math functions while maintaining security constraints~~ RESOLVED: 02-01 complete with 8 scientific functions
 - ~~Phase 2: Angle mode implementation needs to integrate with simpleeval's evaluation context~~ RESOLVED: Dynamic function rebuilding pattern
 - ~~Phase 2: GUI needs to wire up scientific buttons to backend functions (Plan 02-02)~~ RESOLVED: 02-02 complete with MVC controller and button mapping
-- Phase 3: Angle mode state management for UI persistence
+- ~~Phase 3: Keyboard input handling for GUI~~ RESOLVED: 03-01 complete with window-level bindings
+- Phase 3: Angle mode state management for UI persistence (DEG/RAD toggle state)
 - Phase 3: Need inverse trigonometric functions (asin, acos, atan) - constants already defined
-- Phase 3: Keyboard input handling for GUI
-- Phase 3: History panel for expression tracking
+- Phase 3: History panel for expression tracking (Plan 03-02)
 
 ## Session Continuity
 
-Last session: 2026-02-05
-Stopped at: Phase 3 planned — ready for execution
+Last session: 2026-02-05T20:13:36Z
+Stopped at: Completed 03-01-PLAN.md
 Resume file: None
 
 ---
 *State initialized: 2026-02-05*
-*Last updated: 2026-02-05 after Phase 3 planning*
+*Last updated: 2026-02-05 after 03-01 completion*
