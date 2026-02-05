@@ -72,3 +72,8 @@ BTN_MODE_SCIENTIFIC = "Naukowy"
 # Angle mode labels (display)
 ANGLE_DEG = "DEG"
 ANGLE_RAD = "RAD"
+
+# History panel
+HIST_TITLE = "Historia"
+HIST_CLEAR = "Wyczysc historie"
+HIST_EMPTY = "Brak historii"

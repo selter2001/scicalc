@@ -82,3 +82,15 @@ BUTTON_COLORS = {
     "action": {"fg_color": "#D4D4D2", "hover_color": "#E4E4E2", "text_color": "black"},
     "equals": {"fg_color": "#FF9500", "hover_color": "#FFB340", "text_color": "white"},
 }
+
+# History
+MAX_HISTORY_ENTRIES = 100
+
+# History panel styling
+HISTORY_PANEL_WIDTH = 250
+FONT_HISTORY_TITLE = 14
+FONT_HISTORY_ENTRY = 13
+
+# Updated window geometry to accommodate history panel
+WINDOW_WITH_HISTORY_WIDTH = 700
+WINDOW_WITH_HISTORY_MIN_WIDTH = 650
