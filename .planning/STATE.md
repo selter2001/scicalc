@@ -10,29 +10,29 @@ See: .planning/PROJECT.md (updated 2026-02-05)
 ## Current Position
 
 Phase: 2 of 4 (Scientific Functions & Basic GUI)
-Plan: 01 of 2 in phase
-Status: In progress - Plan 02-01 complete, ready for 02-02
-Last activity: 2026-02-05 — Completed 02-01-PLAN.md (scientific functions backend)
+Plan: 02 of 2 in phase
+Status: Phase complete - All Phase 2 plans executed
+Last activity: 2026-02-05 — Completed 02-02-PLAN.md (CustomTkinter GUI with MVC controller)
 
-Progress: [████████░░] 3/6 total plans complete (Phase 1: 2/2, Phase 2: 1/2)
+Progress: [████████████░░░░] 4/6 total plans complete (Phase 1: 2/2, Phase 2: 2/2)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
-- Average duration: 3.26 min
-- Total execution time: 0.16 hours
+- Total plans completed: 4
+- Average duration: 3.46 min
+- Total execution time: 0.23 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-project-foundation-core-engine | 2 | 5.37 min | 2.69 min |
-| 02-scientific-functions-basic-gui | 1 | 4.52 min | 4.52 min |
+| 02-scientific-functions-basic-gui | 2 | 8.40 min | 4.20 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (1.5 min), 01-02 (3.87 min), 02-01 (4.52 min)
-- Trend: Gradually increasing (more complex features)
+- Last 5 plans: 01-01 (1.5 min), 01-02 (3.87 min), 02-01 (4.52 min), 02-02 (3.88 min)
+- Trend: Stabilizing around 4 min per plan
 
 *Updated after each plan completion*
 
@@ -56,6 +56,13 @@ Recent decisions affecting current work:
 - **02-01:** Power operator precedence: preprocess ^ to ** instead of AST remapping
 - **02-01:** Angle mode with dynamic function rebuilding (closures capture mode, rebuild on change)
 - **02-01:** Custom _safe_factorial wrapper for localized validation errors
+- **02-02:** MVC pattern with controller mediating between view and engine
+- **02-02:** StringVar for reactive display updates without manual refresh
+- **02-02:** Lambda closure pattern (lambda l=label) to capture button labels correctly
+- **02-02:** Dependency injection in controller constructor for testability
+- **02-02:** Dark theme set before window creation via ctk.set_appearance_mode
+- **02-02:** Button color coding: numbers dark, operators orange, functions gray, actions light
+- **02-02:** LABEL_TO_TOKEN mapping: Transform button labels (√, π, x^y) to engine tokens (sqrt(, pi, ^)
 
 ### Pending Todos
 
@@ -70,16 +77,18 @@ None yet.
 - ~~Phase 1: Need to select safe expression parser library (simpleeval vs asteval vs custom) — research during planning~~ RESOLVED: simpleeval selected
 - ~~Phase 2: Need to extend SafeEvaluator with math functions while maintaining security constraints~~ RESOLVED: 02-01 complete with 8 scientific functions
 - ~~Phase 2: Angle mode implementation needs to integrate with simpleeval's evaluation context~~ RESOLVED: Dynamic function rebuilding pattern
-- Phase 2: GUI needs to wire up scientific buttons to backend functions (Plan 02-02)
+- ~~Phase 2: GUI needs to wire up scientific buttons to backend functions (Plan 02-02)~~ RESOLVED: 02-02 complete with MVC controller and button mapping
 - Phase 3: Angle mode state management for UI persistence
 - Phase 3: Need inverse trigonometric functions (asin, acos, atan) - constants already defined
+- Phase 3: Keyboard input handling for GUI
+- Phase 3: History panel for expression tracking
 
 ## Session Continuity
 
 Last session: 2026-02-05
-Stopped at: Completed 02-01-PLAN.md (scientific functions backend)
+Stopped at: Completed 02-02-PLAN.md (CustomTkinter GUI with MVC controller)
 Resume file: None
 
 ---
 *State initialized: 2026-02-05*
-*Last updated: 2026-02-05 after completing 02-01*
+*Last updated: 2026-02-05 after completing 02-02*
