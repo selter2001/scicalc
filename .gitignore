@@ -44,5 +44,4 @@ env/
 .DS_Store
 Thumbs.db
 
-# Planning artifacts (optional - user can override)
-.planning/
+# Planning artifacts are tracked (commit_docs: true)
