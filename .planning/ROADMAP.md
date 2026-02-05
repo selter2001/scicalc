@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Project Foundation & Core Engine** - Project structure, safe parser, decimal-based arithmetic with error handling
 - [x] **Phase 2: Scientific Functions & Basic GUI** - Trigonometric/logarithmic functions, CustomTkinter interface, basic mode operations
-- [ ] **Phase 3: Advanced Modes & History** - Scientific mode toggle, angle mode system (DEG/RAD), history panel with keyboard support
+- [x] **Phase 3: Advanced Modes & History** - Scientific mode toggle, angle mode system (DEG/RAD), history panel with keyboard support
 - [ ] **Phase 4: Polish & Professional Package** - Final UX refinements, professional documentation, GitHub-ready release
 
 ## Phase Details
@@ -66,8 +66,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — Angle mode toggle (DEG/RAD), keyboard input support, clipboard operations (Ctrl+C/V)
-- [ ] 03-02-PLAN.md — History side panel with scrollable entries, click-to-recall, and clear history
+- [x] 03-01-PLAN.md — Angle mode toggle (DEG/RAD), keyboard input support, clipboard operations (Ctrl+C/V)
+- [x] 03-02-PLAN.md — History side panel with scrollable entries, click-to-recall, and clear history
 
 ### Phase 4: Polish & Professional Package
 **Goal**: GitHub-ready professional calculator with comprehensive documentation
@@ -93,9 +93,9 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 |-------|----------------|--------|-----------|
 | 1. Project Foundation & Core Engine | 2/2 | Complete | 2026-02-05 |
 | 2. Scientific Functions & Basic GUI | 2/2 | Complete | 2026-02-05 |
-| 3. Advanced Modes & History | 0/2 | Planned | - |
+| 3. Advanced Modes & History | 2/2 | Complete | 2026-02-05 |
 | 4. Polish & Professional Package | 0/1 | Not started | - |
 
 ---
 *Roadmap created: 2026-02-05*
-*Last updated: 2026-02-05 after Phase 3 planning*
+*Last updated: 2026-02-05 after Phase 3 completion*

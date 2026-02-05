@@ -23,18 +23,18 @@
 - [ ] **MODE-01**: Użytkownik może przełączać między trybem basic i scientific
 - [ ] **MODE-02**: W trybie basic widoczne są tylko podstawowe operacje
 - [ ] **MODE-03**: W trybie scientific widoczne są wszystkie funkcje naukowe
-- [ ] **MODE-04**: Użytkownik może przełączać tryb kątów DEG/RAD
-- [ ] **MODE-05**: Aktualny tryb kątów jest wyraźnie widoczny na ekranie
-- [ ] **MODE-06**: Użytkownik może wpisywać cyfry i operatory z klawiatury
-- [ ] **MODE-07**: Klawiatura obsługuje Enter (oblicz), Backspace (cofnij), Escape (wyczyść)
+- [x] **MODE-04**: Użytkownik może przełączać tryb kątów DEG/RAD
+- [x] **MODE-05**: Aktualny tryb kątów jest wyraźnie widoczny na ekranie
+- [x] **MODE-06**: Użytkownik może wpisywać cyfry i operatory z klawiatury
+- [x] **MODE-07**: Klawiatura obsługuje Enter (oblicz), Backspace (cofnij), Escape (wyczyść)
 
 ### Historia (HIST)
 
-- [ ] **HIST-01**: Boczny panel wyświetla listę poprzednich obliczeń
-- [ ] **HIST-02**: Kliknięcie wpisu historii wstawia wynik do wyświetlacza
-- [ ] **HIST-03**: Użytkownik może wyczyścić historię
-- [ ] **HIST-04**: Użytkownik może kopiować wynik (Ctrl+C)
-- [ ] **HIST-05**: Użytkownik może wkleić wartość do wyświetlacza (Ctrl+V)
+- [x] **HIST-01**: Boczny panel wyświetla listę poprzednich obliczeń
+- [x] **HIST-02**: Kliknięcie wpisu historii wstawia wynik do wyświetlacza
+- [x] **HIST-03**: Użytkownik może wyczyścić historię
+- [x] **HIST-04**: Użytkownik może kopiować wynik (Ctrl+C)
+- [x] **HIST-05**: Użytkownik może wkleić wartość do wyświetlacza (Ctrl+V)
 
 ### Interfejs (UI)
 
@@ -90,15 +90,15 @@
 | MODE-01 | Phase 2 | Complete |
 | MODE-02 | Phase 2 | Complete |
 | MODE-03 | Phase 2 | Complete |
-| MODE-04 | Phase 3 | Pending |
-| MODE-05 | Phase 3 | Pending |
-| MODE-06 | Phase 3 | Pending |
-| MODE-07 | Phase 3 | Pending |
-| HIST-01 | Phase 3 | Pending |
-| HIST-02 | Phase 3 | Pending |
-| HIST-03 | Phase 3 | Pending |
-| HIST-04 | Phase 3 | Pending |
-| HIST-05 | Phase 3 | Pending |
+| MODE-04 | Phase 3 | Complete |
+| MODE-05 | Phase 3 | Complete |
+| MODE-06 | Phase 3 | Complete |
+| MODE-07 | Phase 3 | Complete |
+| HIST-01 | Phase 3 | Complete |
+| HIST-02 | Phase 3 | Complete |
+| HIST-03 | Phase 3 | Complete |
+| HIST-04 | Phase 3 | Complete |
+| HIST-05 | Phase 3 | Complete |
 | UI-01 | Phase 2 | Complete |
 | UI-02 | Phase 2 | Complete |
 | UI-03 | Phase 2 | Complete |
@@ -117,4 +117,4 @@
 
 ---
 *Requirements defined: 2026-02-05*
-*Last updated: 2026-02-05 after Phase 2 completion — 22 requirements complete*
+*Last updated: 2026-02-05 after Phase 3 completion — 31 requirements complete*
