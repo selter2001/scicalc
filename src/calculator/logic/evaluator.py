@@ -89,7 +89,7 @@ class SafeEvaluator:
 
     def _build_evaluator(self) -> SimpleEval:
         """
-        Build a SimpleEval instance with operator remapping.
+        Build a SimpleEval instance.
 
         Returns:
             SimpleEval: Configured evaluator instance
@@ -98,10 +98,8 @@ class SafeEvaluator:
         evaluator.functions = self.functions
         evaluator.names = self.names
 
-        # Remap ^ from XOR to power
-        # simpleeval uses AST node types as keys
-        # ^ is BitXor in AST, we need to map it to power operator
-        evaluator.operators[ast.BitXor] = operator.pow
+        # Note: ^ operator is replaced with ** in preprocessing (see evaluate method)
+        # This ensures correct operator precedence for exponentiation
 
         return evaluator
 
@@ -181,9 +179,13 @@ class SafeEvaluator:
                 - error (str): Error message if failed, None if successful
         """
         try:
+            # Preprocess: replace ^ with ** for correct power operator precedence
+            # BitXor (^) has wrong precedence, so we use ** which has correct precedence
+            processed_expr = expression.replace('^', '**')
+
             # Use SimpleEval for safe evaluation
             # This prevents code injection and limits to mathematical operations
-            result = self._evaluator.eval(expression)
+            result = self._evaluator.eval(processed_expr)
 
             # Convert to Decimal for precision
             # simpleeval uses float internally, so we need to convert

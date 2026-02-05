@@ -107,3 +107,106 @@ class TestInputValidator:
         """Test large numbers are valid."""
         result = self.validator.validate("999999+1")
         assert result["valid"] is True
+
+
+class TestScientificValidation:
+    """Test suite for validation of scientific functions and operators."""
+
+    def setup_method(self):
+        """Initialize validator before each test."""
+        self.validator = InputValidator()
+
+    # Function names validation
+    def test_valid_sin_function(self):
+        """Test sin() function is valid."""
+        result = self.validator.validate("sin(90)")
+        assert result["valid"] is True
+
+    def test_valid_cos_function(self):
+        """Test cos() function is valid."""
+        result = self.validator.validate("cos(0)")
+        assert result["valid"] is True
+
+    def test_valid_tan_function(self):
+        """Test tan() function is valid."""
+        result = self.validator.validate("tan(45)")
+        assert result["valid"] is True
+
+    def test_valid_sqrt_function(self):
+        """Test sqrt() function is valid."""
+        result = self.validator.validate("sqrt(4)")
+        assert result["valid"] is True
+
+    def test_valid_log_function(self):
+        """Test log() function is valid."""
+        result = self.validator.validate("log(100)")
+        assert result["valid"] is True
+
+    def test_valid_ln_function(self):
+        """Test ln() function is valid."""
+        result = self.validator.validate("ln(e)")
+        assert result["valid"] is True
+
+    def test_valid_factorial_function(self):
+        """Test factorial() function is valid."""
+        result = self.validator.validate("factorial(5)")
+        assert result["valid"] is True
+
+    # Power operator (^) validation
+    def test_valid_power_operator(self):
+        """Test ^ operator is valid."""
+        result = self.validator.validate("2^3")
+        assert result["valid"] is True
+
+    def test_valid_power_in_expression(self):
+        """Test ^ operator in complex expression."""
+        result = self.validator.validate("(2+3)^2")
+        assert result["valid"] is True
+
+    def test_valid_multiple_powers(self):
+        """Test multiple ^ operators."""
+        result = self.validator.validate("2^3+3^2")
+        assert result["valid"] is True
+
+    # Constants validation
+    def test_valid_pi_constant(self):
+        """Test pi constant is valid."""
+        result = self.validator.validate("pi")
+        assert result["valid"] is True
+
+    def test_valid_e_constant(self):
+        """Test e constant is valid."""
+        result = self.validator.validate("e")
+        assert result["valid"] is True
+
+    def test_valid_pi_in_expression(self):
+        """Test pi constant in expression."""
+        result = self.validator.validate("2*pi")
+        assert result["valid"] is True
+
+    # Complex scientific expressions
+    def test_valid_nested_functions(self):
+        """Test nested scientific functions."""
+        result = self.validator.validate("sqrt(log(100))")
+        assert result["valid"] is True
+
+    def test_valid_functions_with_operators(self):
+        """Test functions mixed with operators."""
+        result = self.validator.validate("sin(45)+cos(45)")
+        assert result["valid"] is True
+
+    def test_valid_power_with_functions(self):
+        """Test power operator with functions."""
+        result = self.validator.validate("sqrt(4)^2")
+        assert result["valid"] is True
+
+    # Error cases
+    def test_invalid_trailing_power(self):
+        """Test trailing ^ operator is invalid."""
+        result = self.validator.validate("2^")
+        assert result["valid"] is False
+
+    def test_invalid_consecutive_power(self):
+        """Test consecutive ^^ operators are invalid."""
+        result = self.validator.validate("2^^3")
+        assert result["valid"] is False

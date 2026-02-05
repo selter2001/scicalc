@@ -159,3 +159,128 @@ class TestCalculatorEngine:
         assert result["success"] is True
         # Should be "1" due to precision and rounding
         assert result["result"] == "1"
+
+
+class TestScientificCalculator:
+    """Test suite for CalculatorEngine with scientific functions."""
+
+    def setup_method(self):
+        """Initialize calculator before each test."""
+        self.calc = CalculatorEngine()
+
+    # Trigonometric functions
+    def test_sin_90_degrees(self):
+        """Test sin(90) in degrees mode."""
+        result = self.calc.calculate("sin(90)")
+        assert result["success"] is True
+        assert abs(Decimal(result["result"]) - Decimal("1.0")) < Decimal("0.0001")
+
+    def test_cos_0_degrees(self):
+        """Test cos(0) in degrees mode."""
+        result = self.calc.calculate("cos(0)")
+        assert result["success"] is True
+        assert abs(Decimal(result["result"]) - Decimal("1.0")) < Decimal("0.0001")
+
+    def test_tan_45_degrees(self):
+        """Test tan(45) in degrees mode."""
+        result = self.calc.calculate("tan(45)")
+        assert result["success"] is True
+        assert abs(Decimal(result["result"]) - Decimal("1.0")) < Decimal("0.0001")
+
+    def test_angle_mode_radians(self):
+        """Test angle mode switching to radians."""
+        self.calc.set_angle_mode("radians")
+        result = self.calc.calculate("sin(pi/2)")
+        assert result["success"] is True
+        assert abs(Decimal(result["result"]) - Decimal("1.0")) < Decimal("0.0001")
+
+    # Square root
+    def test_sqrt_4(self):
+        """Test sqrt(4) = 2."""
+        result = self.calc.calculate("sqrt(4)")
+        assert result["success"] is True
+        assert result["result"] == "2"
+
+    def test_sqrt_9(self):
+        """Test sqrt(9) = 3."""
+        result = self.calc.calculate("sqrt(9)")
+        assert result["success"] is True
+        assert result["result"] == "3"
+
+    # Logarithms
+    def test_log_100(self):
+        """Test log(100) = 2."""
+        result = self.calc.calculate("log(100)")
+        assert result["success"] is True
+        assert result["result"] == "2"
+
+    def test_ln_e(self):
+        """Test ln(e) = 1."""
+        result = self.calc.calculate("ln(e)")
+        assert result["success"] is True
+        assert abs(Decimal(result["result"]) - Decimal("1.0")) < Decimal("0.0001")
+
+    # Power operator
+    def test_power_2_3(self):
+        """Test 2^3 = 8."""
+        result = self.calc.calculate("2^3")
+        assert result["success"] is True
+        assert result["result"] == "8"
+
+    def test_power_2_10(self):
+        """Test 2^10 = 1024."""
+        result = self.calc.calculate("2^10")
+        assert result["success"] is True
+        assert result["result"] == "1024"
+
+    # Factorial
+    def test_factorial_5(self):
+        """Test factorial(5) = 120."""
+        result = self.calc.calculate("factorial(5)")
+        assert result["success"] is True
+        assert result["result"] == "120"
+
+    def test_factorial_0(self):
+        """Test factorial(0) = 1."""
+        result = self.calc.calculate("factorial(0)")
+        assert result["success"] is True
+        assert result["result"] == "1"
+
+    def test_factorial_negative_error(self):
+        """Test factorial(-1) returns Polish error."""
+        result = self.calc.calculate("factorial(-1)")
+        assert result["success"] is False
+        assert "silnia" in result["error"].lower()
+
+    def test_factorial_not_integer_error(self):
+        """Test factorial(5.5) returns Polish error."""
+        result = self.calc.calculate("factorial(5.5)")
+        assert result["success"] is False
+        assert "silnia" in result["error"].lower()
+
+    # Constants
+    def test_pi_constant(self):
+        """Test pi constant."""
+        result = self.calc.calculate("pi")
+        assert result["success"] is True
+        assert abs(Decimal(result["result"]) - Decimal("3.14159")) < Decimal("0.001")
+
+    def test_e_constant(self):
+        """Test e constant."""
+        result = self.calc.calculate("e")
+        assert result["success"] is True
+        assert abs(Decimal(result["result"]) - Decimal("2.71828")) < Decimal("0.001")
+
+    # Complex expressions
+    def test_complex_with_functions(self):
+        """Test complex expression with scientific functions."""
+        result = self.calc.calculate("sqrt(4) + 2^3")
+        assert result["success"] is True
+        assert result["result"] == "10"
+
+    def test_nested_functions(self):
+        """Test nested scientific functions."""
+        result = self.calc.calculate("sqrt(factorial(4))")
+        assert result["success"] is True
+        # factorial(4) = 24, sqrt(24) ≈ 4.898
+        assert abs(Decimal(result["result"]) - Decimal("4.898")) < Decimal("0.01")

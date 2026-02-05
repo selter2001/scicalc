@@ -29,6 +29,15 @@ class CalculatorEngine:
         self.validator = InputValidator()
         self.evaluator = SafeEvaluator()
 
+    def set_angle_mode(self, mode: str) -> None:
+        """
+        Set the angle mode for trigonometric functions.
+
+        Args:
+            mode: Angle mode (degrees/radians/gradians)
+        """
+        self.evaluator.set_angle_mode(mode)
+
     def calculate(self, expression: str) -> dict:
         """
         Calculate the result of a mathematical expression.

@@ -1,6 +1,7 @@
 """
 InputValidator - validates calculator input expressions.
 Checks parentheses balance, syntax, and returns Polish error messages.
+Extended to support scientific functions, ^ operator, and math constants.
 """
 import re
 from src.calculator.config.locale import (
@@ -10,6 +11,7 @@ from src.calculator.config.locale import (
     ERROR_MISSING_OPENING_PARENTHESIS,
     ERROR_INVALID_EXPRESSION
 )
+from src.calculator.config.constants import BASIC_FUNCTIONS, ALL_FUNCTIONS
 
 
 class InputValidator:
@@ -19,7 +21,7 @@ class InputValidator:
     Checks:
     - Empty expressions
     - Balanced parentheses with position tracking
-    - Basic syntax validation
+    - Syntax validation (with support for functions, ^, and constants)
     """
 
     def __init__(self):
@@ -114,7 +116,7 @@ class InputValidator:
         Checks for:
         - Consecutive operators (except unary minus)
         - Trailing operators
-        - Invalid characters
+        - Invalid characters (allows functions, ^, and constants)
 
         Args:
             expression: The expression to check
@@ -122,8 +124,9 @@ class InputValidator:
         Returns:
             dict with valid, error, position keys
         """
-        # Allow: digits, operators, parentheses, decimal point, whitespace
-        valid_chars = re.compile(r'^[\d+\-*/().eE\s]+$')
+        # Allow: digits, operators (including ^), parentheses, decimal point,
+        # whitespace, and letters (for function names and constants like pi, e)
+        valid_chars = re.compile(r'^[\d+\-*/^().eE\s\w]+$')
         if not valid_chars.match(expression):
             return {
                 "valid": False,
@@ -135,7 +138,7 @@ class InputValidator:
         expr_no_space = expression.replace(' ', '')
 
         # Check for trailing operators
-        if expr_no_space and expr_no_space[-1] in '+-*/':
+        if expr_no_space and expr_no_space[-1] in '+-*/^':
             return {
                 "valid": False,
                 "error": ERROR_INVALID_EXPRESSION,
@@ -143,7 +146,7 @@ class InputValidator:
             }
 
         # Check for consecutive operators (excluding unary minus)
-        operators = ['+', '-', '*', '/']
+        operators = ['+', '-', '*', '/', '^']
         for i in range(len(expr_no_space) - 1):
             current = expr_no_space[i]
             next_char = expr_no_space[i + 1]
