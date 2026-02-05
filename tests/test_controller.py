@@ -16,6 +16,8 @@ def mock_view():
     view.update_result = Mock()
     view.set_button_callback = Mock()
     view.set_mode_callback = Mock()
+    view.set_angle_mode_callback = Mock()
+    view.get_result = Mock(return_value="42")
     view.mainloop = Mock()
     return view
 
@@ -157,3 +159,100 @@ def test_full_scientific_expression(controller, mock_view):
     # sin(90 degrees) should be 1
     last_result_call = mock_view.update_result.call_args[0][0]
     assert last_result_call == "1"
+
+
+# --- Angle mode tests ---
+
+def test_angle_mode_change_to_radians(controller, mock_view):
+    """Switching to RAD sets engine to radians mode."""
+    controller.on_angle_mode_change("radians")
+    controller.expression = "sin(pi/2)"
+    controller.on_button_click("=")
+    last_result = mock_view.update_result.call_args[0][0]
+    assert last_result == "1"
+
+
+def test_angle_mode_change_to_degrees(controller, mock_view):
+    """Switching to DEG sets engine to degrees mode."""
+    controller.on_angle_mode_change("degrees")
+    controller.expression = "sin(30)"
+    controller.on_button_click("=")
+    last_result = mock_view.update_result.call_args[0][0]
+    assert last_result == "0.5"
+
+
+def test_angle_mode_deg_vs_rad_different_results(controller, mock_view):
+    """Same expression gives different results in DEG vs RAD."""
+    controller.on_angle_mode_change("degrees")
+    controller.expression = "sin(30)"
+    controller.on_button_click("=")
+    deg_result = mock_view.update_result.call_args[0][0]
+
+    controller.on_angle_mode_change("radians")
+    controller.expression = "sin(30)"
+    controller.error_state = False
+    controller.on_button_click("=")
+    rad_result = mock_view.update_result.call_args[0][0]
+
+    assert deg_result != rad_result
+    assert deg_result == "0.5"
+
+
+# --- Keyboard input tests ---
+
+def test_keyboard_digit_input(controller, mock_view):
+    """Keyboard digit is routed through on_button_click."""
+    controller.on_button_click("7")
+    assert controller.expression == "7"
+    mock_view.update_expression.assert_called_with("7")
+
+
+def test_keyboard_operator_input(controller, mock_view):
+    """Keyboard operator is routed through on_button_click."""
+    controller.on_button_click("5")
+    controller.on_button_click("+")
+    controller.on_button_click("3")
+    assert controller.expression == "5+3"
+
+
+def test_keyboard_enter_calculates(controller, mock_view):
+    """Enter key (mapped to =) calculates expression."""
+    controller.expression = "2+3"
+    controller.on_button_click("=")
+    mock_view.update_result.assert_called_with("5")
+
+
+def test_keyboard_escape_clears(controller, mock_view):
+    """Escape key (mapped to C) clears expression."""
+    controller.expression = "123"
+    controller.on_button_click("C")
+    assert controller.expression == ""
+    mock_view.update_expression.assert_called_with("")
+    mock_view.update_result.assert_called_with("0")
+
+
+def test_keyboard_backspace_deletes(controller, mock_view):
+    """Backspace key removes last character."""
+    controller.expression = "123"
+    controller.on_button_click("\u232b")
+    assert controller.expression == "12"
+
+
+def test_keyboard_parentheses(controller, mock_view):
+    """Keyboard parentheses work in expressions."""
+    controller.on_button_click("(")
+    controller.on_button_click("2")
+    controller.on_button_click("+")
+    controller.on_button_click("3")
+    controller.on_button_click(")")
+    controller.on_button_click("*")
+    controller.on_button_click("4")
+    assert controller.expression == "(2+3)*4"
+    controller.on_button_click("=")
+    mock_view.update_result.assert_called_with("20")
+
+
+def test_paste_numeric_string(controller, mock_view):
+    """Pasting a numeric string appends it to expression."""
+    controller.on_button_click("3.14")
+    assert controller.expression == "3.14"

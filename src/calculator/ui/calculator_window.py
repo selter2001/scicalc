@@ -9,7 +9,8 @@ from src.calculator.config.locale import WINDOW_TITLE, BTN_MODE_BASIC, BTN_MODE_
 from src.calculator.config.constants import (
     WINDOW_MIN_WIDTH,
     WINDOW_MIN_HEIGHT,
-    WINDOW_DEFAULT_GEOMETRY
+    WINDOW_DEFAULT_GEOMETRY,
+    KEYBOARD_CHARS
 )
 
 
@@ -53,6 +54,10 @@ class CalculatorWindow(ctk.CTk):
         self.button_callback = None
         self.mode_callback = None
         self.angle_mode_callback = None
+        self.keyboard_callback = None
+
+        # Bind keyboard shortcuts at window level
+        self._bind_keyboard_shortcuts()
 
     def _on_mode_change(self, value):
         """Handle mode selector change."""
@@ -86,3 +91,57 @@ class CalculatorWindow(ctk.CTk):
     def update_result(self, text):
         """Update result display."""
         self.display.update_result(text)
+
+    def set_keyboard_callback(self, callback):
+        """Set callback for keyboard events."""
+        self.keyboard_callback = callback
+
+    def _bind_keyboard_shortcuts(self):
+        """Bind all keyboard shortcuts at window level."""
+        # Enter = calculate (same as =)
+        self.bind("<Return>", lambda e: self._on_key("="))
+
+        # Escape = clear (same as C)
+        self.bind("<Escape>", lambda e: self._on_key("C"))
+
+        # Backspace = delete last char
+        self.bind("<BackSpace>", lambda e: self._on_key("\u232b"))
+
+        # Ctrl+C = copy result to clipboard
+        self.bind("<Control-c>", lambda e: self._handle_copy())
+
+        # Ctrl+V = paste from clipboard
+        self.bind("<Control-v>", lambda e: self._handle_paste())
+
+        # Number and operator keys -- use lambda default param to avoid closure bug
+        for char in KEYBOARD_CHARS:
+            self.bind(char, lambda e, c=char: self._on_key(c))
+
+    def _on_key(self, label):
+        """Route keyboard input through button callback."""
+        if self.button_callback:
+            self.button_callback(label)
+
+    def _handle_copy(self):
+        """Copy current result to system clipboard."""
+        result_text = self.display.get_result()
+        if result_text:
+            self.clipboard_clear()
+            self.clipboard_append(result_text)
+        return "break"  # Prevent default Ctrl+C behavior
+
+    def _handle_paste(self):
+        """Paste clipboard content into expression."""
+        try:
+            clipboard_text = self.clipboard_get()
+            if clipboard_text and self.button_callback:
+                # Strip whitespace before validation (trailing spaces from copy)
+                clipboard_text = clipboard_text.strip()
+                # Validate: only paste numeric/operator content
+                valid_chars = set("0123456789+-*/().eE")
+                if clipboard_text and all(c in valid_chars for c in clipboard_text):
+                    self.button_callback(clipboard_text)
+        except Exception:
+            # Clipboard empty or contains non-text data -- ignore silently
+            pass
+        return "break"  # Prevent default Ctrl+V behavior
