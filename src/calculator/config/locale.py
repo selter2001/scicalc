@@ -9,7 +9,7 @@ MSG_PROMPT = "Wprowadź wyrażenie (lub 'quit' aby wyjść): "
 MSG_GOODBYE = "Do widzenia!"
 
 # Error messages
-ERROR_DIVISION_BY_ZERO = "Błąd: Dzielenie przez zero"
+ERROR_DIVISION_BY_ZERO = "Nie można dzielić przez zero"
 ERROR_INVALID_EXPRESSION = "Błąd: Nieprawidłowe wyrażenie"
 ERROR_SYNTAX_ERROR = "Błąd: Błąd składni"
 ERROR_UNDEFINED_FUNCTION = "Błąd: Niezdefiniowana funkcja"
@@ -18,6 +18,10 @@ ERROR_MATH_DOMAIN = "Błąd: Wartość poza dziedziną funkcji"
 ERROR_OVERFLOW = "Błąd: Wynik zbyt duży"
 ERROR_INVALID_ANGLE_MODE = "Błąd: Nieprawidłowy tryb kątów"
 ERROR_EXPRESSION_TOO_LONG = "Błąd: Wyrażenie zbyt długie"
+ERROR_EMPTY_EXPRESSION = "Wyrażenie jest puste"
+ERROR_UNBALANCED_PARENTHESES = "Niezrównoważone nawiasy na pozycji {}"
+ERROR_MISSING_CLOSING_PARENTHESIS = "Brak zamykającego nawiasu"
+ERROR_MISSING_OPENING_PARENTHESIS = "Brak otwierającego nawiasu na pozycji {}"
 
 # Info messages
 INFO_RESULT = "Wynik: {}"
