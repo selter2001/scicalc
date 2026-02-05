@@ -79,17 +79,17 @@
 |-------------|-------|--------|
 | CALC-01 | Phase 1 | Complete |
 | CALC-02 | Phase 1 | Complete |
-| CALC-03 | Phase 2 | Pending |
-| CALC-04 | Phase 2 | Pending |
-| CALC-05 | Phase 2 | Pending |
-| CALC-06 | Phase 2 | Pending |
-| CALC-07 | Phase 2 | Pending |
+| CALC-03 | Phase 2 | Complete |
+| CALC-04 | Phase 2 | Complete |
+| CALC-05 | Phase 2 | Complete |
+| CALC-06 | Phase 2 | Complete |
+| CALC-07 | Phase 2 | Complete |
 | CALC-08 | Phase 1 | Complete |
 | CALC-09 | Phase 1 | Complete |
 | CALC-10 | Phase 1 | Complete |
-| MODE-01 | Phase 2 | Pending |
-| MODE-02 | Phase 2 | Pending |
-| MODE-03 | Phase 2 | Pending |
+| MODE-01 | Phase 2 | Complete |
+| MODE-02 | Phase 2 | Complete |
+| MODE-03 | Phase 2 | Complete |
 | MODE-04 | Phase 3 | Pending |
 | MODE-05 | Phase 3 | Pending |
 | MODE-06 | Phase 3 | Pending |
@@ -99,11 +99,11 @@
 | HIST-03 | Phase 3 | Pending |
 | HIST-04 | Phase 3 | Pending |
 | HIST-05 | Phase 3 | Pending |
-| UI-01 | Phase 2 | Pending |
-| UI-02 | Phase 2 | Pending |
-| UI-03 | Phase 2 | Pending |
-| UI-04 | Phase 2 | Pending |
-| UI-05 | Phase 2 | Pending |
+| UI-01 | Phase 2 | Complete |
+| UI-02 | Phase 2 | Complete |
+| UI-03 | Phase 2 | Complete |
+| UI-04 | Phase 2 | Complete |
+| UI-05 | Phase 2 | Complete |
 | PROJ-01 | Phase 1 | Complete |
 | PROJ-02 | Phase 4 | Pending |
 | PROJ-03 | Phase 1 | Complete |
@@ -117,4 +117,4 @@
 
 ---
 *Requirements defined: 2026-02-05*
-*Last updated: 2026-02-05 after Phase 1 completion — 9 requirements complete*
+*Last updated: 2026-02-05 after Phase 2 completion — 22 requirements complete*

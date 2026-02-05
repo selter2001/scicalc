@@ -13,7 +13,7 @@ Build a professional scientific calculator from greenfield to GitHub-ready relea
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Project Foundation & Core Engine** - Project structure, safe parser, decimal-based arithmetic with error handling
-- [ ] **Phase 2: Scientific Functions & Basic GUI** - Trigonometric/logarithmic functions, CustomTkinter interface, basic mode operations
+- [x] **Phase 2: Scientific Functions & Basic GUI** - Trigonometric/logarithmic functions, CustomTkinter interface, basic mode operations
 - [ ] **Phase 3: Advanced Modes & History** - Scientific mode toggle, angle mode system (DEG/RAD), history panel with keyboard support
 - [ ] **Phase 4: Polish & Professional Package** - Final UX refinements, professional documentation, GitHub-ready release
 
@@ -49,8 +49,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Extend engine with scientific functions (sin, cos, tan, sqrt, log, ln, factorial, power, constants) and angle mode support
-- [ ] 02-02-PLAN.md — CustomTkinter GUI with dark theme, display panel, button grids, MVC controller, and mode toggle
+- [x] 02-01-PLAN.md — Extend engine with scientific functions (sin, cos, tan, sqrt, log, ln, factorial, power, constants) and angle mode support
+- [x] 02-02-PLAN.md — CustomTkinter GUI with dark theme, display panel, button grids, MVC controller, and mode toggle
 
 ### Phase 3: Advanced Modes & History
 **Goal**: Complete calculator with scientific mode toggle, angle mode system, history panel, and keyboard control
@@ -92,10 +92,10 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Project Foundation & Core Engine | 2/2 | ✓ Complete | 2026-02-05 |
-| 2. Scientific Functions & Basic GUI | 0/2 | Planned | - |
+| 2. Scientific Functions & Basic GUI | 2/2 | ✓ Complete | 2026-02-05 |
 | 3. Advanced Modes & History | 0/2 | Not started | - |
 | 4. Polish & Professional Package | 0/1 | Not started | - |
 
 ---
 *Roadmap created: 2026-02-05*
-*Last updated: 2026-02-05 after Phase 2 planning*
+*Last updated: 2026-02-05 after Phase 2 completion*
