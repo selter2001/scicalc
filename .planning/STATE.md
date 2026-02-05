@@ -9,29 +9,30 @@ See: .planning/PROJECT.md (updated 2026-02-05)
 
 ## Current Position
 
-Phase: 1 of 4 (Project Foundation & Core Engine)
-Plan: 02 of 2 in phase
-Status: Phase complete
-Last activity: 2026-02-05 — Completed 01-02-SUMMARY.md (Calculator Engine Implementation)
+Phase: 2 of 4 (Scientific Functions & Basic GUI)
+Plan: 01 of 2 in phase
+Status: In progress - Plan 02-01 complete, ready for 02-02
+Last activity: 2026-02-05 — Completed 02-01-PLAN.md (scientific functions backend)
 
-Progress: [██████████] 100% (2/2 plans complete)
+Progress: [████████░░] 3/6 total plans complete (Phase 1: 2/2, Phase 2: 1/2)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
-- Average duration: 2.69 min
-- Total execution time: 0.09 hours
+- Total plans completed: 3
+- Average duration: 3.26 min
+- Total execution time: 0.16 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-project-foundation-core-engine | 2 | 5.37 min | 2.69 min |
+| 02-scientific-functions-basic-gui | 1 | 4.52 min | 4.52 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (1.5 min), 01-02 (3.87 min)
-- Trend: Not yet established (need 3+ plans)
+- Last 5 plans: 01-01 (1.5 min), 01-02 (3.87 min), 02-01 (4.52 min)
+- Trend: Gradually increasing (more complex features)
 
 *Updated after each plan completion*
 
@@ -52,6 +53,9 @@ Recent decisions affecting current work:
 - **01-02:** Float-to-Decimal bridge pattern: Decimal(str(round(result, 10))) to handle simpleeval's float results
 - **01-02:** Stack-based parentheses validation for O(n) performance and position tracking
 - **01-02:** Validator-Evaluator-Orchestrator pattern separates concerns (validation, evaluation, formatting)
+- **02-01:** Power operator precedence: preprocess ^ to ** instead of AST remapping
+- **02-01:** Angle mode with dynamic function rebuilding (closures capture mode, rebuild on change)
+- **02-01:** Custom _safe_factorial wrapper for localized validation errors
 
 ### Pending Todos
 
@@ -64,16 +68,18 @@ None yet.
 [Issues that affect future work]
 
 - ~~Phase 1: Need to select safe expression parser library (simpleeval vs asteval vs custom) — research during planning~~ RESOLVED: simpleeval selected
-- Phase 2: Need to extend SafeEvaluator with math functions while maintaining security constraints
-- Phase 2: Angle mode implementation needs to integrate with simpleeval's evaluation context
-- Phase 3: Angle mode state management needs design (global vs per-function)
+- ~~Phase 2: Need to extend SafeEvaluator with math functions while maintaining security constraints~~ RESOLVED: 02-01 complete with 8 scientific functions
+- ~~Phase 2: Angle mode implementation needs to integrate with simpleeval's evaluation context~~ RESOLVED: Dynamic function rebuilding pattern
+- Phase 2: GUI needs to wire up scientific buttons to backend functions (Plan 02-02)
+- Phase 3: Angle mode state management for UI persistence
+- Phase 3: Need inverse trigonometric functions (asin, acos, atan) - constants already defined
 
 ## Session Continuity
 
 Last session: 2026-02-05
-Stopped at: Completed 01-02-SUMMARY.md (Calculator Engine Implementation) - Phase 1 complete
+Stopped at: Completed 02-01-PLAN.md (scientific functions backend)
 Resume file: None
 
 ---
 *State initialized: 2026-02-05*
-*Last updated: 2026-02-05 after 01-02 execution*
+*Last updated: 2026-02-05 after completing 02-01*
