@@ -29,12 +29,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Calculations use Decimal precision (no floating-point errors like 0.1+0.2≠0.3)
   4. Invalid expressions show clear Polish error messages instead of crashing
   5. Project has professional structure (src/ with modules, requirements.txt, .gitignore)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
-- [ ] 01-03: TBD
+- [ ] 01-01-PLAN.md — Project scaffolding, directory structure, .gitignore, requirements.txt, config modules (locale.py, constants.py)
+- [ ] 01-02-PLAN.md — Core calculation engine with TDD: SafeEvaluator, InputValidator, CalculatorEngine
 
 ### Phase 2: Scientific Functions & Basic GUI
 **Goal**: Deliver working calculator GUI with all scientific functions in basic mode
@@ -92,11 +91,11 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Project Foundation & Core Engine | 0/3 | Not started | - |
+| 1. Project Foundation & Core Engine | 0/2 | Not started | - |
 | 2. Scientific Functions & Basic GUI | 0/2 | Not started | - |
 | 3. Advanced Modes & History | 0/2 | Not started | - |
 | 4. Polish & Professional Package | 0/1 | Not started | - |
 
 ---
 *Roadmap created: 2026-02-05*
-*Last updated: 2026-02-05 after initial roadmap creation*
+*Last updated: 2026-02-05 after Phase 1 planning*
