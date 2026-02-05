@@ -46,11 +46,11 @@ Plans:
   4. User can click buttons to input numbers, operators, and functions
   5. Window scales properly when resized (responsive grid layout)
   6. Basic mode shows only essential operations in clean, uncluttered layout
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
+- [ ] 02-01-PLAN.md — Extend engine with scientific functions (sin, cos, tan, sqrt, log, ln, factorial, power, constants) and angle mode support
+- [ ] 02-02-PLAN.md — CustomTkinter GUI with dark theme, display panel, button grids, MVC controller, and mode toggle
 
 ### Phase 3: Advanced Modes & History
 **Goal**: Complete calculator with scientific mode toggle, angle mode system, history panel, and keyboard control
@@ -92,10 +92,10 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Project Foundation & Core Engine | 2/2 | ✓ Complete | 2026-02-05 |
-| 2. Scientific Functions & Basic GUI | 0/2 | Not started | - |
+| 2. Scientific Functions & Basic GUI | 0/2 | Planned | - |
 | 3. Advanced Modes & History | 0/2 | Not started | - |
 | 4. Polish & Professional Package | 0/1 | Not started | - |
 
 ---
 *Roadmap created: 2026-02-05*
-*Last updated: 2026-02-05 after Phase 1 completion*
+*Last updated: 2026-02-05 after Phase 2 planning*
