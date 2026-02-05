@@ -9,19 +9,19 @@ See: .planning/PROJECT.md (updated 2026-02-05)
 
 ## Current Position
 
-Phase: 3 of 4 (Advanced Modes & History) — IN PROGRESS
-Plan: 01 of 2 in phase (plan 03-01 complete)
-Status: Phase 3 in progress — 1 plan complete, 1 remaining
-Last activity: 2026-02-05 — Completed 03-01-PLAN.md (angle mode, keyboard, clipboard)
+Phase: 3 of 4 (Advanced Modes & History) — COMPLETE
+Plan: 2 of 2 in phase (all plans complete)
+Status: Phase 3 complete — ready for Phase 4
+Last activity: 2026-02-05 — Completed 03-02-PLAN.md (history panel with click-to-recall)
 
-Progress: [██████████████░░] 5/8 total plans complete (Phase 1: 2/2, Phase 2: 2/2, Phase 3: 1/2)
+Progress: [███████████████░] 6/8 total plans complete (Phase 1: 2/2, Phase 2: 2/2, Phase 3: 2/2)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
-- Average duration: 3.31 min
-- Total execution time: 0.28 hours
+- Total plans completed: 6
+- Average duration: 3.18 min
+- Total execution time: 0.32 hours
 
 **By Phase:**
 
@@ -29,11 +29,11 @@ Progress: [██████████████░░] 5/8 total plans com
 |-------|-------|-------|----------|
 | 01-project-foundation-core-engine | 2 | 5.37 min | 2.69 min |
 | 02-scientific-functions-basic-gui | 2 | 8.40 min | 4.20 min |
-| 03-advanced-modes-history | 1 | 2.70 min | 2.70 min |
+| 03-advanced-modes-history | 2 | 5.47 min | 2.74 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-02 (3.87 min), 02-01 (4.52 min), 02-02 (3.88 min), 03-01 (2.70 min)
-- Trend: Decreasing - last plan significantly faster
+- Last 5 plans: 02-01 (4.52 min), 02-02 (3.88 min), 03-01 (2.70 min), 03-02 (2.77 min)
+- Trend: Stable - Phase 3 plans consistently fast (~2.7 min average)
 
 *Updated after each plan completion*
 
@@ -69,6 +69,11 @@ Recent decisions affecting current work:
 - **03-01:** Window-level keyboard bindings ensure input works regardless of widget focus
 - **03-01:** Return 'break' from clipboard handlers prevents tkinter default Ctrl+C/V behavior
 - **03-01:** Clipboard paste validation: only numeric/operator characters allowed (0-9, +, -, *, /, (, ), ., e, E)
+- **03-02:** HistoryPanel as CTkFrame wrapping CTkScrollableFrame (header/button outside scrollable area)
+- **03-02:** 2-column layout with transparent calc_frame wrapper for calculator components
+- **03-02:** History recall appends result to expression (vs replacing) for composability
+- **03-02:** History limit enforcement with pop(0) removes oldest when exceeding MAX_HISTORY_ENTRIES=100
+- **03-02:** Empty state recreation pattern: destroy/recreate label vs persistent hidden widget
 
 ### Pending Todos
 
@@ -85,16 +90,15 @@ None yet.
 - ~~Phase 2: Angle mode implementation needs to integrate with simpleeval's evaluation context~~ RESOLVED: Dynamic function rebuilding pattern
 - ~~Phase 2: GUI needs to wire up scientific buttons to backend functions (Plan 02-02)~~ RESOLVED: 02-02 complete with MVC controller and button mapping
 - ~~Phase 3: Keyboard input handling for GUI~~ RESOLVED: 03-01 complete with window-level bindings
-- Phase 3: Angle mode state management for UI persistence (DEG/RAD toggle state)
-- Phase 3: Need inverse trigonometric functions (asin, acos, atan) - constants already defined
-- Phase 3: History panel for expression tracking (Plan 03-02)
+- ~~Phase 3: History panel for expression tracking (Plan 03-02)~~ RESOLVED: 03-02 complete with scrollable panel and click-to-recall
+- Phase 4: Potential enhancements - history persistence, export, inverse trig functions (asin, acos, atan)
 
 ## Session Continuity
 
-Last session: 2026-02-05T20:13:36Z
-Stopped at: Completed 03-01-PLAN.md
+Last session: 2026-02-05T20:19:34Z
+Stopped at: Completed 03-02-PLAN.md (Phase 3 complete)
 Resume file: None
 
 ---
 *State initialized: 2026-02-05*
-*Last updated: 2026-02-05 after 03-01 completion*
+*Last updated: 2026-02-05 after 03-02 completion*
