@@ -5,6 +5,7 @@ MVC Controller connecting UI events to CalculatorEngine operations.
 import customtkinter as ctk
 from src.calculator.logic.calculator import CalculatorEngine
 from src.calculator.ui.calculator_window import CalculatorWindow
+from src.calculator.config.constants import MAX_HISTORY_ENTRIES
 
 
 # Label-to-token mapping for button transformations
@@ -48,11 +49,14 @@ class CalculatorController:
         self.expression = ""
         self.last_result = "0"
         self.error_state = False
+        self.history = []  # List of (expression, result) tuples
 
         # Wire up callbacks
         self.view.set_button_callback(self.on_button_click)
         self.view.set_mode_callback(self.on_mode_change)
         self.view.set_angle_mode_callback(self.on_angle_mode_change)
+        self.view.set_history_recall_callback(self.on_history_recall)
+        self.view.set_history_clear_callback(self._on_history_cleared)
 
         # Initialize display
         self.view.update_expression("")
@@ -107,6 +111,16 @@ class CalculatorController:
             self.last_result = result["result"]
             self.view.update_result(self.last_result)
             self.error_state = False
+
+            # Add to history
+            self.history.append((self.expression, self.last_result))
+
+            # Enforce max history limit
+            if len(self.history) > MAX_HISTORY_ENTRIES:
+                self.history.pop(0)  # Remove oldest entry
+
+            # Update history panel
+            self.view.add_history_entry(self.expression, self.last_result)
         else:
             # Show error
             self.view.update_result(result["error"])
@@ -126,6 +140,20 @@ class CalculatorController:
         if self.expression:
             self.expression = self.expression[:-1]
             self.view.update_expression(self.expression)
+
+    def on_history_recall(self, result):
+        """Handle click on history entry - insert result into expression."""
+        # If in error state, clear first
+        if self.error_state:
+            self._clear()
+
+        # Append result to expression
+        self.expression += result
+        self.view.update_expression(self.expression)
+
+    def _on_history_cleared(self):
+        """Handle history clear button - clear internal history list."""
+        self.history.clear()
 
     def run(self):
         """Start the GUI main loop."""

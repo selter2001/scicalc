@@ -17,6 +17,10 @@ def mock_view():
     view.set_button_callback = Mock()
     view.set_mode_callback = Mock()
     view.set_angle_mode_callback = Mock()
+    view.set_history_recall_callback = Mock()
+    view.set_history_clear_callback = Mock()
+    view.add_history_entry = Mock()
+    view.clear_history = Mock()
     view.get_result = Mock(return_value="42")
     view.mainloop = Mock()
     return view
@@ -256,3 +260,105 @@ def test_paste_numeric_string(controller, mock_view):
     """Pasting a numeric string appends it to expression."""
     controller.on_button_click("3.14")
     assert controller.expression == "3.14"
+
+
+# --- History tests ---
+
+def test_history_added_on_calculate(controller, mock_view):
+    """Successful calculation adds entry to history."""
+    controller.on_button_click("2")
+    controller.on_button_click("+")
+    controller.on_button_click("3")
+    controller.on_button_click("=")
+
+    # Check history list
+    assert len(controller.history) == 1
+    assert controller.history[0] == ("2+3", "5")
+
+    # Check view was updated
+    mock_view.add_history_entry.assert_called_once_with("2+3", "5")
+
+
+def test_history_not_added_on_error(controller, mock_view):
+    """Failed calculation does not add to history."""
+    controller.on_button_click("5")
+    controller.on_button_click("/")
+    controller.on_button_click("0")
+    controller.on_button_click("=")
+
+    # History should be empty
+    assert len(controller.history) == 0
+    mock_view.add_history_entry.assert_not_called()
+
+
+def test_history_multiple_entries(controller, mock_view):
+    """Multiple calculations create multiple history entries."""
+    # First calculation
+    controller.on_button_click("2")
+    controller.on_button_click("+")
+    controller.on_button_click("3")
+    controller.on_button_click("=")
+
+    # Clear and second calculation
+    controller.on_button_click("C")
+    controller.on_button_click("5")
+    controller.on_button_click("*")
+    controller.on_button_click("4")
+    controller.on_button_click("=")
+
+    # Check history has both
+    assert len(controller.history) == 2
+    assert controller.history[0] == ("2+3", "5")
+    assert controller.history[1] == ("5*4", "20")
+    assert mock_view.add_history_entry.call_count == 2
+
+
+def test_history_recall_inserts_result(controller, mock_view):
+    """Clicking history entry inserts result into expression."""
+    controller.on_history_recall("42")
+    assert controller.expression == "42"
+    mock_view.update_expression.assert_called_with("42")
+
+
+def test_history_recall_clears_error_first(controller, mock_view):
+    """History recall clears error state before inserting."""
+    # Create error state
+    controller.on_button_click("5")
+    controller.on_button_click("/")
+    controller.on_button_click("0")
+    controller.on_button_click("=")
+    assert controller.error_state is True
+
+    # Recall should clear error
+    controller.on_history_recall("10")
+    assert controller.error_state is False
+    assert controller.expression == "10"
+
+
+def test_history_max_limit(controller, mock_view):
+    """History enforces MAX_HISTORY_ENTRIES limit."""
+    from src.calculator.config.constants import MAX_HISTORY_ENTRIES
+
+    # Add more than max entries
+    for i in range(MAX_HISTORY_ENTRIES + 5):
+        controller.expression = f"{i}+{i}"
+        controller._calculate()
+
+    # Should only keep last MAX_HISTORY_ENTRIES
+    assert len(controller.history) == MAX_HISTORY_ENTRIES
+    # First entry should be entry #5 (entries 0-4 were dropped)
+    assert controller.history[0] == ("5+5", "10")
+
+
+def test_history_cleared_by_controller(controller, mock_view):
+    """Clear callback clears controller's history list."""
+    # Add some history
+    controller.on_button_click("2")
+    controller.on_button_click("+")
+    controller.on_button_click("3")
+    controller.on_button_click("=")
+    assert len(controller.history) == 1
+
+    # Simulate clear button callback
+    controller._on_history_cleared()
+    assert len(controller.history) == 0

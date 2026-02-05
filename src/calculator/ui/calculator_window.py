@@ -5,12 +5,15 @@ Main calculator window with display, buttons, and mode selector.
 import customtkinter as ctk
 from src.calculator.ui.display import DisplayPanel
 from src.calculator.ui.button_panel import ButtonPanel
+from src.calculator.ui.history_panel import HistoryPanel
 from src.calculator.config.locale import WINDOW_TITLE, BTN_MODE_BASIC, BTN_MODE_SCIENTIFIC
 from src.calculator.config.constants import (
     WINDOW_MIN_WIDTH,
     WINDOW_MIN_HEIGHT,
-    WINDOW_DEFAULT_GEOMETRY,
-    KEYBOARD_CHARS
+    KEYBOARD_CHARS,
+    WINDOW_WITH_HISTORY_WIDTH,
+    WINDOW_WITH_HISTORY_MIN_WIDTH,
+    HISTORY_PANEL_WIDTH
 )
 
 
@@ -24,31 +27,44 @@ class CalculatorWindow(ctk.CTk):
 
         # Window configuration
         self.title(WINDOW_TITLE)
-        self.geometry(WINDOW_DEFAULT_GEOMETRY)
-        self.minsize(WINDOW_MIN_WIDTH, WINDOW_MIN_HEIGHT)
+        self.geometry(f"{WINDOW_WITH_HISTORY_WIDTH}x600")
+        self.minsize(WINDOW_WITH_HISTORY_MIN_WIDTH, WINDOW_MIN_HEIGHT)
+
+        # Create left column frame for calculator
+        self.calc_frame = ctk.CTkFrame(self, fg_color="transparent")
+        self.calc_frame.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
 
         # Mode selector (segmented button)
         self.mode_selector = ctk.CTkSegmentedButton(
-            self,
+            self.calc_frame,
             values=[BTN_MODE_BASIC, BTN_MODE_SCIENTIFIC],
             command=self._on_mode_change
         )
         self.mode_selector.set(BTN_MODE_BASIC)
-        self.mode_selector.grid(row=0, column=0, padx=10, pady=10, sticky="ew")
+        self.mode_selector.grid(row=0, column=0, padx=0, pady=(0, 10), sticky="ew")
 
         # Display panel
-        self.display = DisplayPanel(self)
-        self.display.grid(row=1, column=0, padx=10, pady=10, sticky="ew")
+        self.display = DisplayPanel(self.calc_frame)
+        self.display.grid(row=1, column=0, padx=0, pady=(0, 10), sticky="ew")
 
         # Button panel
-        self.button_panel = ButtonPanel(self)
-        self.button_panel.grid(row=2, column=0, padx=10, pady=(0, 10), sticky="nsew")
+        self.button_panel = ButtonPanel(self.calc_frame)
+        self.button_panel.grid(row=2, column=0, padx=0, pady=0, sticky="nsew")
 
-        # Configure grid weights for responsive resizing
-        self.grid_rowconfigure(0, weight=0)  # Mode selector fixed height
-        self.grid_rowconfigure(1, weight=0)  # Display fixed height
-        self.grid_rowconfigure(2, weight=1)  # Buttons expand
-        self.grid_columnconfigure(0, weight=1)
+        # Configure calc_frame grid weights
+        self.calc_frame.grid_rowconfigure(0, weight=0)  # Mode selector fixed height
+        self.calc_frame.grid_rowconfigure(1, weight=0)  # Display fixed height
+        self.calc_frame.grid_rowconfigure(2, weight=1)  # Buttons expand
+        self.calc_frame.grid_columnconfigure(0, weight=1)
+
+        # History panel (right column)
+        self.history_panel = HistoryPanel(self)
+        self.history_panel.grid(row=0, column=1, padx=(0, 10), pady=10, sticky="nsew")
+
+        # Configure main window grid weights (2-column layout)
+        self.grid_rowconfigure(0, weight=1)
+        self.grid_columnconfigure(0, weight=1)  # Calculator column expands
+        self.grid_columnconfigure(1, weight=0)  # History column fixed width
 
         # Callbacks (set by controller)
         self.button_callback = None
@@ -145,3 +161,21 @@ class CalculatorWindow(ctk.CTk):
             # Clipboard empty or contains non-text data -- ignore silently
             pass
         return "break"  # Prevent default Ctrl+V behavior
+
+    # History panel convenience methods
+
+    def add_history_entry(self, expression, result):
+        """Add entry to history panel."""
+        self.history_panel.add_entry(expression, result)
+
+    def set_history_recall_callback(self, callback):
+        """Set callback for history entry clicks."""
+        self.history_panel.set_recall_callback(callback)
+
+    def set_history_clear_callback(self, callback):
+        """Set callback for history clear button."""
+        self.history_panel.set_clear_callback(callback)
+
+    def clear_history(self):
+        """Clear all history entries."""
+        self.history_panel.clear_history()
