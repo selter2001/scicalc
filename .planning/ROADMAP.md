@@ -24,9 +24,9 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Depends on**: Nothing (first phase)
 **Requirements**: PROJ-01, PROJ-03, PROJ-04, PROJ-05, CALC-01, CALC-02, CALC-08, CALC-09, CALC-10
 **Success Criteria** (what must be TRUE):
-  1. User can execute basic arithmetic operations (+, -, ×, ÷) with parentheses and see correct results
+  1. User can execute basic arithmetic operations (+, -, *, /) with parentheses and see correct results
   2. Expressions are parsed safely without eval() vulnerability
-  3. Calculations use Decimal precision (no floating-point errors like 0.1+0.2≠0.3)
+  3. Calculations use Decimal precision (no floating-point errors like 0.1+0.2!=0.3)
   4. Invalid expressions show clear Polish error messages instead of crashing
   5. Project has professional structure (src/ with modules, requirements.txt, .gitignore)
 **Plans**: 2 plans
@@ -59,15 +59,15 @@ Plans:
 **Success Criteria** (what must be TRUE):
   1. User can toggle between basic and scientific modes (scientific reveals all functions)
   2. User can switch angle mode between DEG and RAD with mode clearly displayed
-  3. Trigonometric calculations respect angle mode (sin(30°) = 0.5, sin(30 rad) ≠ 0.5)
+  3. Trigonometric calculations respect angle mode (sin(30 degrees) = 0.5, sin(30 rad) != 0.5)
   4. History panel shows all previous calculations and user can click any entry to recall result
   5. User can type calculations with keyboard (numbers, operators, Enter for =, Backspace, Escape for clear)
   6. User can copy results (Ctrl+C) and paste values (Ctrl+V)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
+- [ ] 03-01-PLAN.md — Angle mode toggle (DEG/RAD), keyboard input support, clipboard operations (Ctrl+C/V)
+- [ ] 03-02-PLAN.md — History side panel with scrollable entries, click-to-recall, and clear history
 
 ### Phase 4: Polish & Professional Package
 **Goal**: GitHub-ready professional calculator with comprehensive documentation
@@ -87,15 +87,15 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Project Foundation & Core Engine | 2/2 | ✓ Complete | 2026-02-05 |
-| 2. Scientific Functions & Basic GUI | 2/2 | ✓ Complete | 2026-02-05 |
-| 3. Advanced Modes & History | 0/2 | Not started | - |
+| 1. Project Foundation & Core Engine | 2/2 | Complete | 2026-02-05 |
+| 2. Scientific Functions & Basic GUI | 2/2 | Complete | 2026-02-05 |
+| 3. Advanced Modes & History | 0/2 | Planned | - |
 | 4. Polish & Professional Package | 0/1 | Not started | - |
 
 ---
 *Roadmap created: 2026-02-05*
-*Last updated: 2026-02-05 after Phase 2 completion*
+*Last updated: 2026-02-05 after Phase 3 planning*
