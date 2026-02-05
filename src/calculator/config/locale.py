@@ -1,0 +1,42 @@
+"""
+Centralized Polish UI strings for SciCalc.
+All user-facing messages in Polish with proper diacritics.
+"""
+
+# Welcome and interface
+MSG_WELCOME = "Witamy w SciCalc - Kalkulatorze Naukowym"
+MSG_PROMPT = "Wprowadź wyrażenie (lub 'quit' aby wyjść): "
+MSG_GOODBYE = "Do widzenia!"
+
+# Error messages
+ERROR_DIVISION_BY_ZERO = "Błąd: Dzielenie przez zero"
+ERROR_INVALID_EXPRESSION = "Błąd: Nieprawidłowe wyrażenie"
+ERROR_SYNTAX_ERROR = "Błąd: Błąd składni"
+ERROR_UNDEFINED_FUNCTION = "Błąd: Niezdefiniowana funkcja"
+ERROR_UNDEFINED_VARIABLE = "Błąd: Niezdefiniowana zmienna"
+ERROR_MATH_DOMAIN = "Błąd: Wartość poza dziedziną funkcji"
+ERROR_OVERFLOW = "Błąd: Wynik zbyt duży"
+ERROR_INVALID_ANGLE_MODE = "Błąd: Nieprawidłowy tryb kątów"
+ERROR_EXPRESSION_TOO_LONG = "Błąd: Wyrażenie zbyt długie"
+
+# Info messages
+INFO_RESULT = "Wynik: {}"
+INFO_ANGLE_MODE_CHANGED = "Tryb kątów zmieniony na: {}"
+INFO_MEMORY_STORED = "Zapisano do pamięci: {}"
+INFO_MEMORY_RECALLED = "Przywołano z pamięci: {}"
+INFO_MEMORY_CLEARED = "Pamięć wyczyszczona"
+
+# Help messages
+HELP_USAGE = """
+Użycie:
+  - Wprowadź wyrażenie matematyczne
+  - Użyj funkcji: sin(), cos(), tan(), sqrt(), log(), ln()
+  - Stałe: pi, e
+  - Operatory: +, -, *, /, ^, %
+  - quit - wyjście z programu
+"""
+
+# Angle mode
+ANGLE_MODE_DEGREES = "stopnie"
+ANGLE_MODE_RADIANS = "radiany"
+ANGLE_MODE_GRADIANS = "gradiany"
