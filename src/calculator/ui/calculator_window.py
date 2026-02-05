@@ -52,6 +52,7 @@ class CalculatorWindow(ctk.CTk):
         # Callbacks (set by controller)
         self.button_callback = None
         self.mode_callback = None
+        self.angle_mode_callback = None
 
     def _on_mode_change(self, value):
         """Handle mode selector change."""
@@ -68,6 +69,15 @@ class CalculatorWindow(ctk.CTk):
     def set_mode_callback(self, callback):
         """Set callback for mode changes."""
         self.mode_callback = callback
+
+    def set_angle_mode_callback(self, callback):
+        """Set callback for angle mode changes."""
+        self.angle_mode_callback = callback
+        self.display.set_angle_mode_callback(callback)
+
+    def get_result(self):
+        """Get current result text (for clipboard operations)."""
+        return self.display.get_result()
 
     def update_expression(self, text):
         """Update expression display."""

@@ -3,7 +3,13 @@ Display panel for calculator showing expression and result.
 """
 
 import customtkinter as ctk
-from src.calculator.config.constants import FONT_EXPRESSION, FONT_RESULT
+from src.calculator.config.constants import (
+    FONT_EXPRESSION,
+    FONT_RESULT,
+    ANGLE_MODE_DEGREES,
+    ANGLE_MODE_RADIANS
+)
+from src.calculator.config.locale import ANGLE_DEG, ANGLE_RAD
 
 
 class DisplayPanel(ctk.CTkFrame):
@@ -18,6 +24,9 @@ class DisplayPanel(ctk.CTkFrame):
         # StringVars for dynamic text updates
         self.expression_var = ctk.StringVar(value="")
         self.result_var = ctk.StringVar(value="0")
+
+        # Callback for angle mode changes
+        self.angle_mode_callback = None
 
         # Expression label (smaller, top)
         self.expression_label = ctk.CTkLabel(
@@ -39,6 +48,17 @@ class DisplayPanel(ctk.CTkFrame):
         )
         self.result_label.pack(fill="x", padx=10, pady=(0, 10))
 
+        # Angle mode selector (DEG/RAD toggle)
+        self.angle_mode_selector = ctk.CTkSegmentedButton(
+            self,
+            values=[ANGLE_DEG, ANGLE_RAD],
+            width=120,
+            font=("Arial", 12),
+            command=self._on_angle_mode_change
+        )
+        self.angle_mode_selector.set(ANGLE_DEG)
+        self.angle_mode_selector.pack(anchor="w", padx=10, pady=(5, 5))
+
     def update_expression(self, text):
         """Update expression display."""
         self.expression_var.set(text)
@@ -46,3 +66,18 @@ class DisplayPanel(ctk.CTkFrame):
     def update_result(self, text):
         """Update result display."""
         self.result_var.set(text)
+
+    def set_angle_mode_callback(self, callback):
+        """Set callback for angle mode changes."""
+        self.angle_mode_callback = callback
+
+    def _on_angle_mode_change(self, value):
+        """Handle angle mode toggle change."""
+        # Map display label to angle mode constant
+        mode = ANGLE_MODE_DEGREES if value == ANGLE_DEG else ANGLE_MODE_RADIANS
+        if self.angle_mode_callback:
+            self.angle_mode_callback(mode)
+
+    def get_result(self):
+        """Get current result text for clipboard operations."""
+        return self.result_var.get()

@@ -52,6 +52,7 @@ class CalculatorController:
         # Wire up callbacks
         self.view.set_button_callback(self.on_button_click)
         self.view.set_mode_callback(self.on_mode_change)
+        self.view.set_angle_mode_callback(self.on_angle_mode_change)
 
         # Initialize display
         self.view.update_expression("")
@@ -72,6 +73,10 @@ class CalculatorController:
         """Handle mode changes (basic/scientific)."""
         # Mode change handled by view, no engine state needed yet
         pass
+
+    def on_angle_mode_change(self, mode):
+        """Handle angle mode change from DEG/RAD toggle."""
+        self.engine.set_angle_mode(mode)
 
     def _append(self, label):
         """Append button label to expression."""

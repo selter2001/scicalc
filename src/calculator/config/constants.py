@@ -57,6 +57,9 @@ FONT_BUTTON = 18
 BUTTON_CORNER_RADIUS = 10
 BUTTON_PADDING = 4
 
+# Keyboard characters that map directly to expression tokens
+KEYBOARD_CHARS = "0123456789+-*/()."
+
 # Button layout for basic mode (5 rows x 4 columns)
 BASIC_LAYOUT = [
     ["C", "\u232b", "(", ")"],

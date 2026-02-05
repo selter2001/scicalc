@@ -68,3 +68,7 @@ BTN_NEGATE = "+/-"
 # Mode labels
 BTN_MODE_BASIC = "Podstawowy"
 BTN_MODE_SCIENTIFIC = "Naukowy"
+
+# Angle mode labels (display)
+ANGLE_DEG = "DEG"
+ANGLE_RAD = "RAD"
