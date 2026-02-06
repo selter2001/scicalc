@@ -50,7 +50,7 @@ cd scicalc
 
 2. Utwórz wirtualne środowisko:
 ```bash
-python -m venv venv
+python3 -m venv venv
 
 # Linux/macOS:
 source venv/bin/activate
@@ -68,7 +68,7 @@ pip install -r requirements.txt
 
 Uruchom kalkulator poleceniem:
 ```bash
-python -m src.calculator.main
+python3 -m src.calculator.main
 ```
 
 Otworzy się okno kalkulatora z ciemnym motywem. Możesz przełączać się między trybem podstawowym a naukowym za pomocą przycisku w dolnej części okna. Panel historii wyświetla wszystkie wykonane obliczenia i pozwala na szybkie ponowne użycie wyników.
