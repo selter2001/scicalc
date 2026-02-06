@@ -41,17 +41,17 @@ class ButtonPanel(ctk.CTkFrame):
 
         # Scientific rows (hidden initially)
         for row_idx, label in enumerate(SCIENTIFIC_ROW_1):
-            btn = self._create_button(label, row_idx, col_idx=row_idx)
+            btn = self._create_button(label, row_idx, row_idx)
             btn.grid_remove()  # Hide initially
             self.buttons[f"sci1_{row_idx}"] = btn
 
         for row_idx, label in enumerate(SCIENTIFIC_ROW_2):
-            btn = self._create_button(label, row_idx + 1, col_idx=row_idx)
+            btn = self._create_button(label, row_idx + 1, row_idx)
             btn.grid_remove()
             self.buttons[f"sci2_{row_idx}"] = btn
 
         for row_idx, label in enumerate(SCIENTIFIC_ROW_3):
-            btn = self._create_button(label, row_idx + 2, col_idx=row_idx)
+            btn = self._create_button(label, row_idx + 2, row_idx)
             btn.grid_remove()
             self.buttons[f"sci3_{row_idx}"] = btn
 
