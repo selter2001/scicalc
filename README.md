@@ -44,7 +44,7 @@ Profesjonalny kalkulator naukowy z nowoczesnym interfejsem w języku polskim. Ap
 
 1. Sklonuj repozytorium:
 ```bash
-git clone https://github.com/username/scicalc.git
+git clone https://github.com/selter2001/scicalc.git
 cd scicalc
 ```
 
@@ -89,19 +89,20 @@ Otworzy się okno kalkulatora z ciemnym motywem. Możesz przełączać się mię
 
 ```
 src/calculator/
-├── config/       # Konfiguracja aplikacji i lokalizacja
-│   ├── constants.py    # Stałe konfiguracyjne
-│   └── locale.py       # Polskie komunikaty
-├── logic/        # Logika kalkulatora i silnik obliczeń
-│   ├── calculator_engine.py  # Główny silnik
-│   ├── evaluator.py          # Bezpieczna ewaluacja wyrażeń
-│   ├── validator.py          # Walidacja wyrażeń
-│   └── formatters.py         # Formatowanie wyników
-├── ui/           # Komponenty interfejsu użytkownika
-│   ├── calculator_view.py    # Główny widok
-│   ├── history_panel.py      # Panel historii
-│   └── buttons.py            # Definicje przycisków
-└── controller/   # Kontroler MVC łączący logikę z UI
+├── main.py           # Punkt wejścia aplikacji
+├── config/           # Konfiguracja aplikacji i lokalizacja
+│   ├── constants.py      # Stałe konfiguracyjne
+│   └── locale.py         # Polskie komunikaty
+├── logic/            # Logika kalkulatora i silnik obliczeń
+│   ├── calculator.py     # Główny silnik (CalculatorEngine)
+│   ├── evaluator.py      # Bezpieczna ewaluacja wyrażeń (SafeEvaluator)
+│   └── validator.py      # Walidacja wyrażeń (InputValidator)
+├── ui/               # Komponenty interfejsu użytkownika
+│   ├── calculator_window.py  # Główne okno aplikacji
+│   ├── display.py            # Panel wyświetlacza z DEG/RAD
+│   ├── button_panel.py       # Panel przycisków
+│   └── history_panel.py      # Panel historii obliczeń
+└── controller/       # Kontroler MVC łączący logikę z UI
     └── calculator_controller.py
 ```
 
