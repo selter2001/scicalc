@@ -36,9 +36,12 @@ Profesjonalny kalkulator naukowy z nowoczesnym interfejsem w języku polskim. Ap
 
 ### Wymagania
 
-- Python 3.10 lub nowszy
+- **Python 3.10 lub nowszy** (systemowy Python 3.9 na macOS nie jest wystarczający)
 - pip (menedżer pakietów Python)
 - System operacyjny: Windows, macOS, lub Linux
+
+> **macOS:** Domyślny `python3` to często wersja 3.9, która nie obsługuje CustomTkinter.
+> Zainstaluj nowszą wersję: `brew install python@3.12` i używaj `python3.12` zamiast `python3`.
 
 ### Kroki instalacji
 
@@ -50,12 +53,16 @@ cd scicalc
 
 2. Utwórz wirtualne środowisko:
 ```bash
-python3 -m venv venv
+# macOS (z Homebrew Python):
+python3.12 -m venv venv
+source venv/bin/activate
 
-# Linux/macOS:
+# Linux:
+python3 -m venv venv
 source venv/bin/activate
 
 # Windows:
+python -m venv venv
 venv\Scripts\activate
 ```
 
